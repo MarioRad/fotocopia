@@ -5,7 +5,7 @@ from PyPDF2 import PdfReader
 COSTO_HOJA_BASE = 60
 MARGEN_GANANCIA = 1.40  # 40%
 PRECIO_ANILLADO = 2500  # Ajustalo según tu costo
-ALIAS_MP = "mgr.salta.mp" # Reemplazar con el tuyo
+ALIAS_MP = "TU.ALIAS.AQUI" # Reemplazar con el tuyo
 
 st.set_page_config(page_title="Calculadora de Impresiones", page_icon="📝")
 
@@ -39,12 +39,35 @@ if archivo:
     adelanto_minimo = total_final / 2
     saldo_restante = total_final - adelanto_minimo
 
-    # Mostrar Resumen
+   # --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
     st.divider()
     st.subheader("💰 Resumen del Presupuesto")
-    st.write(f"**Total Final:** ${total_final:,.0f}")
-    st.write(f"**Anticipo (50%):** ${adelanto_minimo:,.0f}")
-    st.write(f"**Saldo a pagar al recibir:** ${saldo_restante:,.0f}")
+
+    # Cuadro destacado con el Total Final
+    st.markdown(
+        f"""
+        <div style="
+            background-color: #d4edda; 
+            padding: 20px; 
+            border-radius: 10px; 
+            border: 2px solid #28a745;
+            text-align: center;
+            margin-bottom: 20px;">
+            <h2 style="color: #155724; margin: 0; font-size: 1.2em;">TOTAL FINAL</h2>
+            <h1 style="color: #155724; margin: 0; font-size: 3em;">${total_final:,.0f}</h1>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Detalles del adelanto y saldo en columnas
+    c1, c2 = st.columns(2)
+    with c1:
+        st.write(f"**💵 Anticipo (50%):**")
+        st.subheader(f"${adelanto_minimo:,.0f}")
+    with c2:
+        st.write(f"**📉 Saldo al recibir:**")
+        st.subheader(f"${saldo_restante:,.0f}")
 
     # Gestión de Pago
     metodo = st.radio("¿Cómo paga el anticipo?", ["Efectivo", "Transferencia"])
