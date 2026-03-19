@@ -39,7 +39,7 @@ if archivo:
     adelanto_minimo = total_final / 2
     saldo_restante = total_final - adelanto_minimo
 
-    # --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
+# --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
     st.divider()
     st.subheader("💰 Resumen del Presupuesto")
 
@@ -68,6 +68,23 @@ if archivo:
     with c2:
         st.write(f"**📉 Saldo al recibir:**")
         st.subheader(f"${saldo_restante:,.0f}")
+
+    # Cuadro destacado con el Total Final
+    st.markdown(
+        f"""
+        <div style="
+            background-color: #d4edda; 
+            padding: 20px; 
+            border-radius: 10px; 
+            border: 2px solid #28a745;
+            text-align: center;
+            margin-bottom: 20px;">
+            <h2 style="color: #155724; margin: 0; font-size: 1.2em;">TOTAL FINAL</h2>
+            <h1 style="color: #155724; margin: 0; font-size: 3em;">${total_final:,.0f}</h1>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
 
     # Gestión de Pago
     metodo = st.radio("¿Cómo paga el anticipo?", ["Efectivo", "Transferencia"])
