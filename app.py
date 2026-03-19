@@ -98,11 +98,7 @@ if archivo:
             
             # Aquí va el número de tu hijo o el tuyo
             whatsapp_url = f"https://wa.me/5493874404730?text={msg}"
-            # Dentro del bloque del botón de WhatsApp, podés sumar:
-            fecha_entrega = st.text_input("¿Cuándo se entrega?", "Mañana en el recreo")
-
-            # Y en el mensaje (msg) agregás:
-            f"📅 *ENTREGA:* {fecha_entrega}%0A"
             st.markdown(f'<a href="{whatsapp_url}" target="_blank">Abrir WhatsApp para enviar orden</a>', unsafe_allow_html=True)
         else:
             st.error("Por favor, poné el nombre de quién hace el pedido.")
+            
