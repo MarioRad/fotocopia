@@ -39,12 +39,35 @@ if archivo:
     adelanto_minimo = total_final / 2
     saldo_restante = total_final - adelanto_minimo
 
-    # Mostrar Resumen
+    # --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
     st.divider()
     st.subheader("💰 Resumen del Presupuesto")
-    st.write(f"**Total Final:** ${total_final:,.0f}")
-    st.write(f"**Anticipo (50%):** ${adelanto_minimo:,.0f}")
-    st.write(f"**Saldo a pagar al recibir:** ${saldo_restante:,.0f}")
+
+    # Cuadro destacado con el Total Final
+    st.markdown(
+        f"""
+        <div style="
+            background-color: #d4edda; 
+            padding: 20px; 
+            border-radius: 10px; 
+            border: 2px solid #28a745;
+            text-align: center;
+            margin-bottom: 20px;">
+            <h2 style="color: #155724; margin: 0; font-size: 1.2em;">TOTAL FINAL</h2>
+            <h1 style="color: #155724; margin: 0; font-size: 3em;">${total_final:,.0f}</h1>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+
+    # Detalles del adelanto y saldo en columnas
+    c1, c2 = st.columns(2)
+    with c1:
+        st.write(f"**💵 Anticipo (50%):**")
+        st.subheader(f"${adelanto_minimo:,.0f}")
+    with c2:
+        st.write(f"**📉 Saldo al recibir:**")
+        st.subheader(f"${saldo_restante:,.0f}")
 
     # Gestión de Pago
     metodo = st.radio("¿Cómo paga el anticipo?", ["Efectivo", "Transferencia"])
@@ -75,6 +98,11 @@ if archivo:
             
             # Aquí va el número de tu hijo o el tuyo
             whatsapp_url = f"https://wa.me/5493874404730?text={msg}"
+            # Dentro del bloque del botón de WhatsApp, podés sumar:
+            fecha_entrega = st.text_input("¿Cuándo se entrega?", "Mañana en el recreo")
+
+            # Y en el mensaje (msg) agregás:
+            f"📅 *ENTREGA:* {fecha_entrega}%0A"
             st.markdown(f'<a href="{whatsapp_url}" target="_blank">Abrir WhatsApp para enviar orden</a>', unsafe_allow_html=True)
         else:
             st.error("Por favor, poné el nombre de quién hace el pedido.")
