@@ -5,7 +5,7 @@ from PyPDF2 import PdfReader
 COSTO_HOJA_BASE = 60
 MARGEN_GANANCIA = 1.40  # 40%
 PRECIO_ANILLADO = 2500  # Ajustalo según tu costo
-ALIAS_MP = "mgr.salta.mp" # Reemplazar con el tuyo
+ALIAS_MP = "TU.ALIAS.AQUI" # Reemplazar con el tuyo
 
 st.set_page_config(page_title="Calculadora de Impresiones", page_icon="📝")
 
@@ -39,7 +39,7 @@ if archivo:
     adelanto_minimo = total_final / 2
     saldo_restante = total_final - adelanto_minimo
 
-    # --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
+   # --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
     st.divider()
     st.subheader("💰 Resumen del Presupuesto")
 
@@ -98,7 +98,6 @@ if archivo:
             
             # Aquí va el número de tu hijo o el tuyo
             whatsapp_url = f"https://wa.me/5493874404730?text={msg}"
-            
             st.markdown(f'<a href="{whatsapp_url}" target="_blank">Abrir WhatsApp para enviar orden</a>', unsafe_allow_html=True)
         else:
             st.error("Por favor, poné el nombre de quién hace el pedido.")
