@@ -5,7 +5,7 @@ from PyPDF2 import PdfReader
 COSTO_HOJA_BASE = 60
 MARGEN_GANANCIA = 1.40  # 40%
 PRECIO_ANILLADO = 2500  # Ajustalo según tu costo
-ALIAS_MP = "aylly.copias" # Reemplazar con el tuyo
+ALIAS_MP = "ayllu.copias" # Reemplazar con el tuyo
 
 st.set_page_config(page_title="Calculadora de Impresiones", page_icon="📝")
 
@@ -77,7 +77,7 @@ if archivo:
     
     nombre_compañero = st.text_input("Nombre del compañero/profe")
 
-    if st.button("✅ Generar Orden y Enviar WhatsApp"):
+    if st.button("✅ Generar Orden y Enviar WhatsApp para impresión"):
         if nombre_compañero:
             # Crear mensaje para WhatsApp
             msg = (
