@@ -39,7 +39,7 @@ if archivo:
     adelanto_minimo = total_final / 2
     saldo_restante = total_final - adelanto_minimo
 
-# --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
+    # --- MOSTRAR RESUMEN VISUALMENTE IMPACTANTE ---
     st.divider()
     st.subheader("💰 Resumen del Presupuesto")
 
@@ -69,7 +69,6 @@ if archivo:
         st.write(f"**📉 Saldo al recibir:**")
         st.subheader(f"${saldo_restante:,.0f}")
 
-    
     # Gestión de Pago
     metodo = st.radio("¿Cómo paga el anticipo?", ["Efectivo", "Transferencia"])
     
@@ -99,7 +98,7 @@ if archivo:
             
             # Aquí va el número de tu hijo o el tuyo
             whatsapp_url = f"https://wa.me/5493874404730?text={msg}"
+            
             st.markdown(f'<a href="{whatsapp_url}" target="_blank">Abrir WhatsApp para enviar orden</a>', unsafe_allow_html=True)
         else:
             st.error("Por favor, poné el nombre de quién hace el pedido.")
-            
