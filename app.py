@@ -4,7 +4,7 @@ from PyPDF2 import PdfReader
 # --- CONFIGURACIÓN DE PRECIOS ---
 COSTO_HOJA_BASE = 60
 MARGEN_GANANCIA = 1.40  # 40%
-PRECIO_ANILLADO = 2500  # Ajustalo según tu costo
+PRECIO_ANILLADO = 1500  # Ajustalo según tu costo
 ALIAS_MP = "ayllu.copias" # Reemplazar con el tuyo
 
 st.set_page_config(page_title="Calculadora de Impresiones", page_icon="📝")
